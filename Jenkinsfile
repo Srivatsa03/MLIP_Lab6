@@ -15,8 +15,13 @@ pipeline {
                 sh '''#!/bin/bash
                 echo 'Test Step: Running pytest...'
 
+                # Initialize conda in bash
+                source ~/miniconda3/etc/profile.d/conda.sh
+
+                # Activate the mlip environment
+                conda activate mlip
+
                 # Run pytest
-                pip install -r requirements.txt
                 pytest
 
                 echo 'pytest completed'
